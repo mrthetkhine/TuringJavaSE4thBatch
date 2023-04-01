@@ -8,16 +8,14 @@ package com.turing.javase4thbatch.chapter4;
  *
  * @author macbook
  */
-public class CompoundAssignment {
+public class StringEqual {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 5;
+        String str = "Hello";
+        String str2 = "Hello";
+        String str3 = new String("Hello");
         
-        b += a + 2;
-        //b += a;// b = b + a;
-        System.out.println("B "+ b);
-        
-        byte c = 10;
-        c += b;
+        System.out.println("str==str2 "+ (str == str2));
+        System.out.println("str3==str2 "+ (str3 == str2));
+        System.out.println("equals "+ str3.equals(str2));
     }
 }
