@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <button id="btnAllocate" type="button">Allocate</button>
+        <button id="btnAssign" type="button">Assign Null</button>
+    </body>
+    <script>
+        document.getElementById('btnAllocate').addEventListener('click',()=>{
+            allocate();
+        });
+        document.getElementById('btnAssign').addEventListener('click',()=>{
+            arr = null;
+        });
+        var arr = new Array(5);
+        var arr2 ;
+        function allocate()
+        {
+            for(let i=0;i< arr.length;i++)
+            {
+                arr[i] = new Array(1000000);
+            }
+            console.log('Allocate');
+
+            arr2 = arr;
+        }
+       
+       
+    </script>
+</html>
+

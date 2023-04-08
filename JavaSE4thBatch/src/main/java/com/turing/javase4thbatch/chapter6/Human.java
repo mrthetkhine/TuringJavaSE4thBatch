@@ -20,7 +20,12 @@ public class Human {
     }
     public void work()
     {
+        System.out.println("Human work");
         System.out.println("Name "+this.name + " Age "+this.age + " work");
+    }
+    public int getAge()
+    {
+        return this.age;
     }
     public static void main(String[] args) {
         Human obj1 = new Human("Tk",38);
@@ -28,5 +33,8 @@ public class Human {
         
         obj1.work();
         obj2.work();
+        
+        int age = obj1.getAge();
+        System.out.println("Age  "+age); 
     }
 }
