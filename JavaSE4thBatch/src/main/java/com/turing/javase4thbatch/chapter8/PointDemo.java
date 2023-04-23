@@ -41,7 +41,7 @@ class Point3D extends Point2D
 public class PointDemo {
     public static void main(String[] args) {
         Point3D threeD = new Point3D(10,20,30);
-        
+        BasedDerivedDemo obj = new BasedDerivedDemo();
     }
    
 }
