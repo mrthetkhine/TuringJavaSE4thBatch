@@ -1,0 +1,33 @@
+<html>
+    <body>
+     
+    </body>
+    <script>
+        
+       //Rule 1
+       let func = function()
+       {
+        console.log('Hello');
+       }
+       func();
+
+       function hello()
+       {
+            console.log('Hello');        
+       }
+       //Rule 2
+       function acceptFun(fun)
+       {    
+        fun();
+       }
+       acceptFun(hello);
+       
+       //Rule 3
+       function getFun()
+       {
+        return hello;
+       }
+       getFun()();
+    </script>
+</html>
+
