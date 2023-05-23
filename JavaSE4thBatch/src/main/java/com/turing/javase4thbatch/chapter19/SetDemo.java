@@ -5,6 +5,7 @@
 package com.turing.javase4thbatch.chapter19;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -32,5 +33,15 @@ public class SetDemo {
         data.forEach(System.out::println);
         
         System.out.println("Containall "+set.containsAll(another));
+        
+        for(String s: set)
+        {
+            System.out.println("Str "+s);
+        }
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext())
+        {
+            System.out.println("Item "+iterator.next());
+        }
     }
 }
