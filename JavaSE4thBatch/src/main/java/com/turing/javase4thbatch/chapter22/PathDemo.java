@@ -4,6 +4,7 @@
  */
 package com.turing.javase4thbatch.chapter22;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
@@ -17,5 +18,8 @@ public class PathDemo {
         System.out.println("Parent "+path.getParent());
         System.out.println("isAbsolute "+path.isAbsolute());
         System.out.println("Start with "+ path.startsWith(Path.of("./src")));
+        System.out.println("Writable "+ Files.isWritable(path));
+        System.out.println("Reable "+ Files.isReadable(path));
+        System.out.println("Executable "+ Files.isExecutable(path));
     }
 }
