@@ -4,9 +4,14 @@
  */
 package com.turing.javase4thbatch.chapter25;
 
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
+import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -19,7 +24,7 @@ public class FrameDemo extends Frame{
     FrameDemo()
     {
         super("Hello World");
-        setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setSize(400,500);
         setVisible(true);
         addWindowListener(new WindowAdapter() {
             @Override
@@ -29,6 +34,42 @@ public class FrameDemo extends Frame{
                 System.exit(0);
             }
         });
+        addMouseListener(new MouseAdapter(){
+              @Override  
+              public void mouseClicked(MouseEvent e) {
+                  System.out.println("Mouse click "+ e.getX() + ", "+e.getY());
+              }
+              /*
+               public void mousePressed(MouseEvent e) {
+                    System.out.println("Mouse press "+ e.getX() + ", "+e.getY());
+               }
+                public void mouseReleased(MouseEvent e) {
+                     System.out.println("mouseReleased  "+ e.getX() + ", "+e.getY());
+                }
+
+   
+                public void mouseEntered(MouseEvent e) {
+                    System.out.println("mouseEntered  "+ e.getX() + ", "+e.getY());
+                }
+
+
+                public void mouseExited(MouseEvent e) {
+                     System.out.println("mouseExited  "+ e.getX() + ", "+e.getY());
+                }
+
+                public void mouseWheelMoved(MouseWheelEvent e){}
+
+
+                public void mouseDragged(MouseEvent e){}
+
+                public void mouseMoved(MouseEvent e){
+                    System.out.println("mouseMoved  "+ e.getX() + ", "+e.getY());
+                }*/
+                    });
+        Font[]fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts();
+        for (Font font : fonts) {
+            System.out.println("Font "+font.getFontName());
+        }
     }
     
     void drawPoint(Graphics g,int x, int y )
@@ -51,7 +92,8 @@ public class FrameDemo extends Frame{
             int y = (int)(centerY + radius * Math.sin( degreeToRadian(i)));
             drawPoint(g, x, y);
         }
-        
+        g.setFont(new Font("Georgia",Font.PLAIN,14));
+        g.drawString("Hello World", 200, 100);
     }
     public static void main(String[] args) {
         new FrameDemo();
