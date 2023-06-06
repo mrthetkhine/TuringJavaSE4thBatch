@@ -19,17 +19,19 @@ public class FlowLayoutDemo extends ParentFrame{
     }
     void initUI()
     {
-        setLayout(new FlowLayout());
+        setLayout(new FlowLayout(FlowLayout.CENTER,30,10));
         
         Button btnOk = new Button("Ok");
         Button btnCancel = new Button("Cancel");
         
         add(btnOk);
         add(btnCancel);
+        
         for (int i = 0; i < 10; i++) {
             Button btn = new Button(i+"");
             add(btn);
         }
+        
     }
     public static void main(String[] args) {
         new FlowLayoutDemo();

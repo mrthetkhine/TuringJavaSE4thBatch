@@ -14,7 +14,7 @@ import java.awt.event.WindowEvent;
  */
 public class ParentFrame extends Frame{
     
-    ParentFrame(String title)
+    public ParentFrame(String title)
     {
         super(title);
         this.initWindow();

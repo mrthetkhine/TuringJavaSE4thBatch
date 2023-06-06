@@ -27,6 +27,7 @@ public class ScrollBarDemo extends ParentFrame{
         setLayout(new FlowLayout());
         Label lblName = new Label("Name");
         TextField txtName = new TextField(100);
+        txtName.setEchoChar('*');
         
         add(lblName);
         add(txtName);
