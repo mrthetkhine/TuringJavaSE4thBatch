@@ -7,12 +7,13 @@ package com.turing.javase4thbatch.chapter25;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
  * @author macbook
  */
-public class ParentFrame extends Frame{
+public class ParentFrame extends JFrame{
     
     public ParentFrame(String title)
     {

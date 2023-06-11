@@ -5,7 +5,9 @@
 package com.turing.javase4thbatch.chapter31.service;
 
 import com.turing.javase4thbatch.chapter31.model.Item;
+import com.turing.javase4thbatch.chapter31.model.ShoppingCart;
 import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -14,4 +16,7 @@ import java.util.List;
 public interface ItemService {
     List<Item> getAllItem();
     void addItem(Item item);
+    Optional<Item> getItemByName(String name);
+    boolean isQuantitySufficientForItem(Item item,int quantity);
+    void checkOut(ShoppingCart cart);
 }
