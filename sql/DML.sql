@@ -76,3 +76,6 @@ LIMIT 2,2;
 
 SELECT count(*),gender FROM javase4th_tutorial.actor
 GROUP By Gender;
+
+SELECT movie_id,count(*) FROM javase4th_tutorial.movie_actor
+GROUP BY movie_id;
