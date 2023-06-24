@@ -4,16 +4,15 @@
  */
 package com.turing.javase4thbatch.chapter31.dao;
 
-import com.turing.javase4thbatch.chapter31.model.Item;
+import com.turing.javase4thbatch.chapter31.model.Order;
 import java.util.List;
 
 /**
  *
  * @author macbook
  */
-public interface ItemDAO {
-    void addItem(Item item);
-    List<Item> getAllItem();
-    void updateItemQty(long id,int qty);
+public interface OrderDao {
     
+    long createOrder(int userId);
+    List<Order> getAllOrders();
 }

@@ -35,7 +35,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public List<Item> getAllItem() {
-        return this.items;
+        return this.itemDao.getAllItem();
     }
 
     @Override
@@ -58,19 +58,13 @@ public class ItemServiceImpl implements ItemService{
     public boolean isQuantitySufficientForItem(Item item, int quantity) {
         return item.getQuantity() >= quantity;
     }
-    public void checkOut(ShoppingCart cart)
-    {
-        List<ShoppingCartItem> items = cart.getAllItems();
-        for(ShoppingCartItem cartItem : items)
-        {
-            String itemName = cartItem.getName();
-            Optional<Item> itemResult = this.getItemByName(itemName);
-            if(itemResult.isPresent())
-            {
-                Item item = itemResult.get() ;
-                item.setQuantity(item.getQuantity() - cartItem.getQuantity());
-            }
-        }
+
+    //item->shopping cart item.
+    @Override
+    public void buyItem(Item item) {
+        this.itemDao.updateItemQty(item.getId(), (int)item.getQuantity());
     }
+    
+     
     
 }

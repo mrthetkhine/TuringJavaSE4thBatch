@@ -15,6 +15,7 @@ public class MainForm extends javax.swing.JFrame {
     App app;
     NewForm frmNewForm;
     SaleForm frmSale;
+    Orders frmOrder;
     /**
      * Creates new form MainForm
      */
@@ -24,6 +25,7 @@ public class MainForm extends javax.swing.JFrame {
         
         this.frmNewForm = new NewForm();
         this.frmSale = new SaleForm();
+        this.frmOrder = new Orders();
         
         this.dlgLogin.setVisible(true);
         
@@ -49,6 +51,7 @@ public class MainForm extends javax.swing.JFrame {
         mnuNew = new javax.swing.JMenuItem();
         mnuSale = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        mnuAllOrders = new javax.swing.JMenuItem();
 
         dlgLogin.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         dlgLogin.setAlwaysOnTop(true);
@@ -122,7 +125,16 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Order");
+
+        mnuAllOrders.setText("All Orders");
+        mnuAllOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuAllOrdersActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnuAllOrders);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -158,6 +170,12 @@ public class MainForm extends javax.swing.JFrame {
         this.frmSale.setVisible(true);
         this.frmSale.reInitUI();
     }//GEN-LAST:event_mnuSaleActionPerformed
+
+    private void mnuAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAllOrdersActionPerformed
+        // TODO add your handling code here:
+        this.frmOrder.show();
+        this.frmOrder.reloadOrders();
+    }//GEN-LAST:event_mnuAllOrdersActionPerformed
 
     void loginHandler()
     {
@@ -222,6 +240,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem mnuAllOrders;
     private javax.swing.JMenuItem mnuNew;
     private javax.swing.JMenuItem mnuSale;
     private javax.swing.JPasswordField txtPassword;

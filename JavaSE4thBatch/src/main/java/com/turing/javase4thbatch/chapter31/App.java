@@ -8,6 +8,8 @@ import com.turing.javase4thbatch.chapter31.service.AuthImpl;
 import com.turing.javase4thbatch.chapter31.service.AuthService;
 import com.turing.javase4thbatch.chapter31.service.ItemService;
 import com.turing.javase4thbatch.chapter31.service.ItemServiceImpl;
+import com.turing.javase4thbatch.chapter31.service.OrderService;
+import com.turing.javase4thbatch.chapter31.service.OrderServiceImpl;
 
 /**
  *
@@ -16,11 +18,14 @@ import com.turing.javase4thbatch.chapter31.service.ItemServiceImpl;
 public class App {
     static App app;
     private ItemService itemService;
+    private OrderService orderService;
     private AuthService authService;
     private App()
     {
         this.itemService = new ItemServiceImpl();
+        this.orderService = new OrderServiceImpl();
         this.authService = new AuthImpl();
+        
     }
     public static App getApp()
     {
@@ -29,6 +34,10 @@ public class App {
             app = new App();
         }
         return app;
+    }
+
+    public OrderService getOrderService() {
+        return orderService;
     }
     ItemService getItemService()
     {

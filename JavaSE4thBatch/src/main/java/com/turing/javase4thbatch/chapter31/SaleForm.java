@@ -9,6 +9,7 @@ import com.turing.javase4thbatch.chapter31.model.Item;
 import com.turing.javase4thbatch.chapter31.model.ShoppingCart;
 import com.turing.javase4thbatch.chapter31.model.ShoppingCartItem;
 import com.turing.javase4thbatch.chapter31.service.ItemService;
+import com.turing.javase4thbatch.chapter31.service.OrderService;
 import java.util.List;
 import java.util.Optional;
 import javax.swing.JOptionPane;
@@ -21,11 +22,13 @@ import javax.swing.table.DefaultTableModel;
 public class SaleForm extends javax.swing.JFrame {
 
     ItemService itemService;
+    OrderService orderService;
     ShoppingCart cart = new ShoppingCart();
     /** Creates new form SaleForm */
     public SaleForm() {
         initComponents();
         this.itemService = App.getApp().getItemService();
+        this.orderService = App.getApp().getOrderService();
     }
 
     /** This method is called from within the constructor to
@@ -218,7 +221,7 @@ public class SaleForm extends javax.swing.JFrame {
 
     private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
         // TODO add your handling code here:
-        this.itemService.checkOut(cart);
+        this.orderService.checkOut(cart);
         this.cart = new ShoppingCart();
         JOptionPane.showMessageDialog(this, "Item succesfully checkedout");
         this.reloadShopingCartTable();
@@ -244,6 +247,7 @@ public class SaleForm extends javax.swing.JFrame {
             {
                 //Add to cart
                 ShoppingCartItem cartItem = new ShoppingCartItem(item.getName(),item.getPrice(),quantity);
+                cartItem.setId(item.getId());
                 this.addToCart(cartItem);
                 this.txtQuantity.setText("");
             }

@@ -4,20 +4,15 @@
  */
 package com.turing.javase4thbatch.chapter31.service;
 
-import com.turing.javase4thbatch.chapter31.model.Item;
+import com.turing.javase4thbatch.chapter31.model.Order;
 import com.turing.javase4thbatch.chapter31.model.ShoppingCart;
 import java.util.List;
-import java.util.Optional;
 
 /**
  *
  * @author macbook
  */
-public interface ItemService {
-    List<Item> getAllItem();
-    void addItem(Item item);
-    Optional<Item> getItemByName(String name);
-    boolean isQuantitySufficientForItem(Item item,int quantity);
-    void buyItem(Item item);
-   
+public interface OrderService {
+    void checkOut(ShoppingCart cart);
+    List<Order> getAllOrder();
 }

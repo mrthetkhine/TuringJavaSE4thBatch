@@ -9,10 +9,22 @@ package com.turing.javase4thbatch.chapter31.model;
  * @author macbook
  */
 public class Item {
+    Long id;
     String name;
     double price;
     double quantity;
     
+    public Item()
+    {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Item(String name, double price, double quantity)
     {
         this.name = name;
