@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Orders extends javax.swing.JFrame {
 
+    OrderDetailsForm frmOrderDetails = new OrderDetailsForm();
     OrderService orderServie;
     /**
      * Creates new form Orders
@@ -53,6 +54,9 @@ public class Orders extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOrders = new javax.swing.JTable();
+        btnDetails = new javax.swing.JButton();
+
+        setTitle("Orders");
 
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,26 +68,52 @@ public class Orders extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblOrders);
 
+        btnDetails.setText("Details");
+        btnDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDetails)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDetails)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetailsActionPerformed
+        // TODO add your handling code here:
+        this.loadOderDetails();
+        
+    }//GEN-LAST:event_btnDetailsActionPerformed
+    void loadOderDetails()
+    {
+        int row = this.tblOrders.getSelectedRow();
+        if(row != -1)
+        {
+            long orderId = (Long)this.tblOrders.getValueAt(row, 0);
+            this.frmOrderDetails.show();
+            this.frmOrderDetails.loadOderDetails(orderId);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -120,6 +150,7 @@ public class Orders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDetails;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblOrders;
     // End of variables declaration//GEN-END:variables

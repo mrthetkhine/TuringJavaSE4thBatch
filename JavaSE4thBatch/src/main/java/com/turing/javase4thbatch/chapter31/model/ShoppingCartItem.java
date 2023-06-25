@@ -10,7 +10,9 @@ package com.turing.javase4thbatch.chapter31.model;
  */
 public class ShoppingCartItem extends Item{
 
-    
+    public ShoppingCartItem()
+    {
+    }
     public ShoppingCartItem(String name, double price, double quantity) {
         super(name, price, quantity);
       

@@ -6,6 +6,7 @@ package com.turing.javase4thbatch.chapter31.service;
 
 import com.turing.javase4thbatch.chapter31.model.Order;
 import com.turing.javase4thbatch.chapter31.model.ShoppingCart;
+import com.turing.javase4thbatch.chapter31.model.ShoppingCartItem;
 import java.util.List;
 
 /**
@@ -15,4 +16,5 @@ import java.util.List;
 public interface OrderService {
     void checkOut(ShoppingCart cart);
     List<Order> getAllOrder();
+    List<ShoppingCartItem> getOrderDetailsByOrderId(long orderId);
 }

@@ -61,4 +61,9 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> getAllOrder() {
         return this.orderDao.getAllOrders();
     }
+
+    @Override
+    public List<ShoppingCartItem> getOrderDetailsByOrderId(long orderId) {
+        return this.orderItemDao.getOrderDetails(orderId);
+    }
 }

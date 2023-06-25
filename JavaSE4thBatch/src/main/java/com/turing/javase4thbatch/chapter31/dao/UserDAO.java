@@ -4,14 +4,10 @@
  */
 package com.turing.javase4thbatch.chapter31.dao;
 
-import com.turing.javase4thbatch.chapter31.model.ShoppingCartItem;
-import java.util.List;
-
 /**
  *
  * @author macbook
  */
-public interface OrderItemDao {
-    void saveOrderItem(long orderId,ShoppingCartItem item);
-    List<ShoppingCartItem> getOrderDetails(long orderId);
+public interface UserDAO {
+    boolean isAuthenticateUser(String userName,String password);
 }
